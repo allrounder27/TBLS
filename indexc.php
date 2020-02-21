@@ -6,9 +6,11 @@ $link = new mysqli($server, $username, $password, $db);
 if ($link->connect_error) {
     die("Connection Unsuccessful");
 } else {
-    echo "Connection successful!";
     $username = $_POST['username'];
     $password = $_POST['password'];
+    if($username=='' || $password==''){
+      echo "Username and Password cannot be empty.";
+    }
     $query = "SELECT * FROM client WHERE username='$username' AND password='$password' LIMIT 1 ";
     $results = mysqli_query($link, $query);
     if (mysqli_num_rows($results) == 1) {

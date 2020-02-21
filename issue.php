@@ -27,7 +27,7 @@ if ($result->num_rows > 0) {
              <button type ='submit'>Request</button>
          </form>";
        }
-       if($row["checkedout"]==1 ){
+       if($row["checkedout"]==1 && $row["issuername"]==$username){
         echo "<form method='post' action='return.php'>
              <input type='hidden' name='bookname' value='".$row["bookname"]."'></input>
              <input type='hidden' name='username' value='".$username."'></input>

@@ -9,6 +9,9 @@ if ($link->connect_error) {
     echo "Connection successful!";
     $username = $_POST['username'];
     $password = $_POST['password'];
+    if($username=='' || $password==''){
+      echo "Username and Password cannot be empty.";
+    }
     $query = "SELECT * FROM admins WHERE username='$username' AND password='$password' LIMIT 1 ";
     $results = mysqli_query($link, $query);
     if (mysqli_num_rows($results) == 1) {
